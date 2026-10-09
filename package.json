@@ -1,9 +1,13 @@
 {
   "name": "ai-proxy-server",
   "version": "1.0.0",
-  "description": "Central Serverless Function for Gemini API",
+  "description": "Central Serverless Functions for Gemini API",
   "main": "index.js",
   "engines": {
     "node": "24.x"
+  },
+  "dependencies": {
+    "@google/genai": "^0.1.1"
   }
 }
+
