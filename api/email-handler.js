@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     اكتب رداً موجزاً واحترافياً:`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash', // أو gemini-3.5-flash حسب المتاح في مشروعكم
+      model: 'gemini-3.5-flash', // أو gemini-3.5-flash حسب المتاح في مشروعكم
       contents: prompt,
     });
 
