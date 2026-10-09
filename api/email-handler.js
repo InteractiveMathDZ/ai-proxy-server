@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai"; // أو الطريقة التي تستخدمها حالياً لاستدعاء النموذج
+import { GoogleGenAI } from '@google/genai'; // أو الطريقة التي تستخدمها حالياً لاستدعاء النموذج
 
 export default async function handler(req, res) {
   // التأكد من أن الطلب من نوع POST (حسب مزود خدمة البريد أو Webhook)
