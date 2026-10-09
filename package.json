@@ -1,6 +1,7 @@
 {
   "name": "ai-proxy-server",
   "version": "1.0.0",
+  "type": "module",
   "description": "Central Serverless Functions for Gemini API",
   "main": "index.js",
   "engines": {
