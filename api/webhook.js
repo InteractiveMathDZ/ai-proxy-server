@@ -161,16 +161,21 @@ async function generateGeminiResponse(subject, body) {
   return `مرحباً، شكراً لرسالتك حول "${subject}". تم استلام طلبك وجاري مراجعته.`;
 }
 
-// دالة مساعدة لتنسيق رسالة البريد بصيغة MIME الصالحة للإرسال عبر Gmail API
+// دالة مساعدة لتنسيق رسالة البريد وتجنب تشوه الحروف العربية في العنوان والمحتوى
 function createEmailRaw({ to, subject, body, threadId }) {
+  // ترميز الموضوع بصيغة MIME للغة العربية (UTF-8)
+  const encodedSubject = `=?UTF-8?B?${Buffer.from(subject).toString('base64')}?=`;
+
   const emailLines = [
     `To: ${to}`,
-    `Subject: ${subject}`,
-    'Content-Type: text/plain; charset="UTF-8"',
+    `Subject: ${encodedSubject}`,
     'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
     '',
     body
   ];
+  
   const email = emailLines.join('\r\n');
   return Buffer.from(email).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
+
